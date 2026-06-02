@@ -1,6 +1,8 @@
 package ejercicio_2;
 
 public class Junior extends Cargo{
+    public static final String VALIDA_JUNIOR = "Como junior no puedo tener a nadie a mi cargo";
+
     @Override
     public boolean  tieneACargoA(Cargo cargo) {
         return cargo.esSubordinadoDeJunior();
@@ -21,4 +23,15 @@ public class Junior extends Cargo{
         return false;
     }
 
+    @Override
+    public String validacion() {
+        return VALIDA_JUNIOR;
+    }
+
+    @Override
+    public boolean esJerarquico() {
+        return false;
+    }
+
 }
+

@@ -22,4 +22,14 @@ public class MandoMedio extends Cargo{
         return false;
     }
 
+    @Override
+    public String validacion() {
+        return VALIDA_MANDOMEDIO;
+    }
+
+    @Override
+    public boolean esJerarquico() {
+        return true;
+    }
+
 }

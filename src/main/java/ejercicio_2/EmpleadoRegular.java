@@ -26,4 +26,9 @@ public class EmpleadoRegular  implements Empleado{
     public Cargo cargo() {
         return this.cargo;
     }
+
+    @Override
+    public boolean tieneDeEmpleadoA(Empleado Empleado) {
+        return false;
+    }
 }

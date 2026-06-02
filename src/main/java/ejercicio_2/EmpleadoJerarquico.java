@@ -5,7 +5,7 @@ import java.util.List;
 
 public class EmpleadoJerarquico implements Empleado{
 
-    public static final String ASIGNACION_EMPLEADO_INVALIDA = "No se a agregado el empleado, ya no que cumple con la jerarquia";
+    public static  String ASIGNACION_EMPLEADO_INVALIDA = "";
     public static final String VALIDA_EMPLADO_JERARQUICO = "Solo directores o mandos medios son empleados jerarquicos";
     private final String nombre;
     private List<Empleado> empleados;
@@ -18,17 +18,18 @@ public class EmpleadoJerarquico implements Empleado{
         this.salario = salario;
         this.cargo = cargo;
         this.empleados = new ArrayList<>();
+        ASIGNACION_EMPLEADO_INVALIDA = cargo.validacion();
     }
 
     private static void validacionEsJerarquico(Cargo cargo) {
-        if (!cargo.esSubordinadoDeDirector() && !cargo.esSubordinadoDeMandoMedio()) {
+        if (!cargo.esJerarquico()) {
             throw new RuntimeException(VALIDA_EMPLADO_JERARQUICO);
         }
     }
 
     public void agregarEmpleado(Empleado empleado) {
         if (!cargo.tieneACargoA(empleado.cargo())) {
-            cargo.lanzarExpecicion();
+            throw new RuntimeException(ASIGNACION_EMPLEADO_INVALIDA);
         }
 
         this.empleados.add(empleado);

@@ -23,8 +23,13 @@ public class Director extends Cargo {
     }
 
     @Override
-    public String validacionJerarquia() {
+    public String validacion() {
         return VALIDA_DIRECTOR;
+    }
+
+    @Override
+    public boolean esJerarquico() {
+        return true;
     }
 
 

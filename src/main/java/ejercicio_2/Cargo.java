@@ -11,5 +11,7 @@ public abstract class Cargo {
 
     public abstract boolean esSubordinadoDeJunior();
 
-    public abstract String validacionJerarquia();
+    public abstract String validacion();
+
+    public abstract boolean esJerarquico();
 }
