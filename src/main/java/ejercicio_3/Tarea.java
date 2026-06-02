@@ -6,7 +6,7 @@ public class Tarea implements ItemDeProyecto{
     private TipoTarea tipoTarea;
 
     public Tarea(int horasEstimadas, TipoTarea tipoTarea) {
-        if (tipoTarea.equals(TipoTarea.EPICA) || tipoTarea.equals(TipoTarea.HISTORIA_USUARIO)) {
+        if (tipoTarea.esCompleja()) {
             throw new RuntimeException(VALIDA_TAREA_SIMPLE);
         }
         this.horasEstimadas = horasEstimadas;

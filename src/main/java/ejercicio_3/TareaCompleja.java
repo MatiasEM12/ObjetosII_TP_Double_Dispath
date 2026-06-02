@@ -4,30 +4,33 @@ import java.util.List;
 
 public class TareaCompleja implements ItemDeProyecto{
     public static final String VALIDA_HISTORIA = "Solo tareas de desarrollo se permiten en una historia de usuario";
-    public static final String VALIDA_EPICA = "Solo spikes se permiten en una epica";
+
+    private String VALIDA_TAREA;
     public static final String VALIDA_TAREA_COMPLEJA = "No puede crear TS o Spike como Tarea Compleja";
     private List<ItemDeProyecto> items;
     private int horasEstimadas;
     private TipoTarea tipoTarea;
 
     public TareaCompleja(int horasEstimadas, TipoTarea tipoTarea) {
-        if (tipoTarea.equals(TipoTarea.TAREA_DESARROLLO) || tipoTarea.equals(TipoTarea.SPIKE)) {
-            throw new RuntimeException(VALIDA_TAREA_COMPLEJA);
-        }
+        validarTarea(tipoTarea);
+
         this.horasEstimadas = horasEstimadas;
         this.tipoTarea = tipoTarea;
+        this.VALIDA_TAREA = tipoTarea.valida();
+    }
+
+    private static void validarTarea(TipoTarea tipoTarea) {
+        if (!tipoTarea.esCompleja()) {
+            throw new RuntimeException(VALIDA_TAREA_COMPLEJA);
+        }
     }
 
     public void agregarItem(ItemDeProyecto item) {
         //Una historia de usuario solo puede tener tareas de desarrollo
         //Una Epica solo puede tener Apikes
-        if (this.tipoTarea.equals(TipoTarea.HISTORIA_USUARIO)
-                && !item.tipoTarea().equals(TipoTarea.TAREA_DESARROLLO)) {
-            throw new RuntimeException(VALIDA_HISTORIA);
-        }
-        if (this.tipoTarea.equals(TipoTarea.EPICA)
-                && !item.tipoTarea().equals(TipoTarea.SPIKE)) {
-            throw new RuntimeException(VALIDA_EPICA);
+
+        if(!tipoTarea.puedeContener(item.tipoTarea())){
+            throw new RuntimeException(VALIDA_TAREA);
         }
 
         this.items.add(item);
