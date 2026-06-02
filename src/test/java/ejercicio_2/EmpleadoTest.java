@@ -29,7 +29,7 @@ public class EmpleadoTest {
             director.agregarEmpleado(empleadoRegular);
         });
 
-        assertEquals(EmpleadoJerarquico.ASIGNACION_EMPLEADO_INVALIDA, e.getMessage());
+        assertEquals(Director.VALIDA_DIRECTOR, e.getMessage());
     }
 
     @Test
@@ -40,7 +40,7 @@ public class EmpleadoTest {
             mandoMedio.agregarEmpleado(director);
         });
 
-        assertEquals(EmpleadoJerarquico.ASIGNACION_EMPLEADO_INVALIDA, e.getMessage());
+        assertEquals(MandoMedio.VALIDA_MANDOMEDIO, e.getMessage());
     }
 
     @Test

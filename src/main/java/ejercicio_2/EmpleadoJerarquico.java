@@ -5,7 +5,7 @@ import java.util.List;
 
 public class EmpleadoJerarquico implements Empleado{
 
-    public static  String ASIGNACION_EMPLEADO_INVALIDA = "";
+    private String ASIGNACION_EMPLEADO_INVALIDA = "";
     public static final String VALIDA_EMPLADO_JERARQUICO = "Solo directores o mandos medios son empleados jerarquicos";
     private final String nombre;
     private List<Empleado> empleados;
