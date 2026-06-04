@@ -1,5 +1,8 @@
 package ejercicio_4;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CarritoCompras {
 
     private Cliente cliente;

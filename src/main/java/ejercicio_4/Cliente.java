@@ -1,5 +1,7 @@
 package ejercicio_4;
 
+import java.util.List;
+
 public class Cliente {
     private List<Producto> compra;
     private String nombre;
