@@ -20,15 +20,20 @@ public class ProductoFisico implements Producto {
 
     @Override
     public float costoEnvio(TipoCliente tipo) {
-        var costo = this.precio * peso;
-        if (tipo.equals(TipoCliente.CORPORATIVO)) {
-            return costo - (costo * 0.5f);
-        }
-        return costo;
+
+        return tipo.costoEnvio(this);
     }
 
     @Override
     public float impuesto(TipoCliente tipo) {
-        return this.precio * iva;
+        return tipo.impusto(this);
+    }
+
+    public float iva() {
+        return iva;
+    }
+
+    public int peso(){
+        return peso;
     }
 }

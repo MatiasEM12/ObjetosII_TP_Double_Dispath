@@ -1,6 +1,6 @@
 package ejercicio_4;
 
-public class ServicioDigital implements  Producto {
+public class ServicioDigital implements Producto {
     private float precio;
     private String nombre;
     private float iva;
@@ -18,14 +18,15 @@ public class ServicioDigital implements  Producto {
 
     @Override
     public float costoEnvio(TipoCliente tipo) {
-        return 0;
+        return tipo.costoEnvio(this);
     }
 
+    public float iva(){
+        return iva;
+    }
     @Override
     public float impuesto(TipoCliente tipo) {
-        if (tipo.equals(TipoCliente.REGULAR)) {
-            return this.precio * 0.10f;
-        }
-        return 0;
+
+        return tipo.impuesto(this);
     }
 }
