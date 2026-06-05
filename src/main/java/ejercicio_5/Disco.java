@@ -2,6 +2,9 @@ package ejercicio_5;
 
 public class Disco implements Articulo{
 
+
+    public static int DIA_MAXIMO_PRESTAR = 5;
+    public static int DIA_MINIMO_PRESTAR = 3;
     private String nombre;
     private Condicion condicion;
     private int añoBanda;
@@ -15,6 +18,10 @@ public class Disco implements Articulo{
 
     @Override
     public int calcularDiasPrestados() {
-        return condicion.calcularDiasPrestadosPorAño(añoBanda);
+        return condicion.calcularDiasPrestados(this);
+    }
+
+    public int añoBanda(){
+        return añoBanda;
     }
 }

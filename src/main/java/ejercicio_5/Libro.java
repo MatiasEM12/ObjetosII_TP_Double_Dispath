@@ -1,6 +1,6 @@
 package ejercicio_5;
 
-public class Libro {
+public class Libro  implements Articulo{
 
 
     private String nombre;
@@ -13,7 +13,12 @@ public class Libro {
         this.condicion = condicion;
     }
 
-     public int calcularDiasPrestados() {
-        return condicion.calcularDiasPrestados(cantidadPaginas);
+    @Override
+    public int calcularDiasPrestados() {
+        return condicion.calcularDiasPrestados(this);
+    }
+
+    public int cantidadPaginas(){
+        return cantidadPaginas;
     }
 }

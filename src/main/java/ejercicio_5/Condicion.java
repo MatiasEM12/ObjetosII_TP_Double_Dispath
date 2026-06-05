@@ -1,7 +1,11 @@
 package ejercicio_5;
 
 public abstract class Condicion {
-    public abstract int  calcularDiasPrestados(int cantidadPaginas);
+    public abstract int  calcularDiasPrestados(Libro libro);
 
-    public abstract int calcularDiasPrestadosPorAño(int añoBanda);
+    public abstract int calcularDiasPrestados(Disco disco);
+
+    public abstract int calcularDiasPrestados(Revista revista);
+
+
 }

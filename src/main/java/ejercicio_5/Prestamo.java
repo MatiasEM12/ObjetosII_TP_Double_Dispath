@@ -19,4 +19,8 @@ public class Prestamo {
     private LocalDate calcularFechaDevolucion(LocalDate fechaInicio,Articulo articulo) {
         return fechaInicio.plusDays(articulo.calcularDiasPrestados());
     }
+
+    public LocalDate fechaDevolucion(){
+        return fechaDevolucion;
+    }
 }
