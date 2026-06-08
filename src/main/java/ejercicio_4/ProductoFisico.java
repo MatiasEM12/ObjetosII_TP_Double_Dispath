@@ -1,16 +1,16 @@
 package ejercicio_4;
 
 public class ProductoFisico implements Producto {
+    public static final float IVA = 0.21f;
     private float precio;
-    private float iva;
-    private String nombre;
+    String nombre;
     private int peso;
 
     public ProductoFisico(String nombre, float precio, int peso) {
         this.precio = precio;
         this.nombre = nombre;
         this.peso = peso;
-        this.iva = 0.21f;
+
     }
 
     @Override
@@ -30,7 +30,7 @@ public class ProductoFisico implements Producto {
     }
 
     public float iva() {
-        return iva;
+        return IVA;
     }
 
     public int peso(){

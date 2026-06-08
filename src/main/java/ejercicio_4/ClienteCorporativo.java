@@ -3,6 +3,8 @@ package ejercicio_4;
 public class ClienteCorporativo extends TipoCliente {
 
 
+    public static final float PORCENTAJE_COSTO_ENVIO = 0.5f;
+
     @Override
     public float impusto(ProductoFisico productoFisico) {
 
@@ -18,8 +20,9 @@ public class ClienteCorporativo extends TipoCliente {
     @Override
     public float costoEnvio(ProductoFisico productoFisico) {
         var costo =  productoFisico.precio() * productoFisico.peso();
-        return costo - (costo * 0.5f);
+        return costo - (costo * PORCENTAJE_COSTO_ENVIO);
     }
+
 
     @Override
     public float costoEnvio(ServicioDigital servicioDigital) {
