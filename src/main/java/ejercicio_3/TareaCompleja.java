@@ -1,5 +1,6 @@
 package ejercicio_3;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TareaCompleja implements ItemDeProyecto{
@@ -7,7 +8,7 @@ public class TareaCompleja implements ItemDeProyecto{
 
     private String VALIDA_TAREA;
     public static final String VALIDA_TAREA_COMPLEJA = "No puede crear TS o Spike como Tarea Compleja";
-    private List<ItemDeProyecto> items;
+    private List<ItemDeProyecto> items = new ArrayList<>();
     private int horasEstimadas;
     private TipoTarea tipoTarea;
 
